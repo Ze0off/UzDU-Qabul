@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UzDU — Universitetga Qabul Tizimi</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="universitet-qabul.css">
+</head>
+<body>
+
+<!-- ======== NAVBAR ======== -->
+<nav class="navbar">
+  <div class="nav-brand" onclick="goHome()">
+    <div class="nav-logo">🎓</div>
+    <span class="nav-title">UzDU Qabul</span>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <!-- JS to'ldiradi -->
+  </div>
+</nav>
+
+<!-- ======================================== -->
+<!-- SAHIFA 1: BOSH SAHIFA                    -->
+<!-- ======================================== -->
+<div id="p-home" class="page active">
+  <section class="hero">
+    <div class="hero-circle1"></div>
+    <div class="hero-circle2"></div>
+    <h1>O'zbekiston Davlat<br>Universiteti — <span>Qabul Tizimi</span></h1>
+    <p>Uydan turib hujjat topshiring, ariza holatini kuzating va natijani bilib oling.</p>
+    <div class="hero-btns">
+      <button class="btn btn-primary" onclick="showPage('p-register')">📝 Ro'yxatdan O'tish</button>
+      <button class="btn btn-outline" onclick="showPage('p-login')">🔑 Tizimga Kirish</button>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-ico">🖥️</div><h3>Online Ariza</h3><p>Uydan turib ariza topshiring. Navbat kutish shart emas.</p></div>
+      <div class="feat"><div class="feat-ico">📊</div><h3>Holat Kuzatuvi</h3><p>Arizangiz holatini real vaqtda kuzating.</p></div>
+      <div class="feat"><div class="feat-ico">🎯</div><h3>Ko'p Yo'nalish</h3><p>15 dan ortiq yo'nalish ichidan mosini tanlang.</p></div>
+      <div class="feat"><div class="feat-ico">⚡</div><h3>Tez va Oson</h3><p>Ariza topshirish atigi 3-5 daqiqa vaqt oladi.</p></div>
+      <div class="feat"><div class="feat-ico">🔒</div><h3>Xavfsiz</h3><p>Ma'lumotlaringiz xavfsiz saqlanadi.</p></div>
+      <div class="feat"><div class="feat-ico">📱</div><h3>Mobil Qulay</h3><p>Telefon yoki kompyuterdan foydalanish mumkin.</p></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><h2>Qabul Jarayoni</h2><p>Universitetga kirish uchun quyidagi bosqichlarni bajaring</p></div></div>
+      <div class="steps">
+        <div class="step done"><div class="step-dot">1</div><div class="step-lbl">Ro'yxat</div></div>
+        <div class="step done"><div class="step-dot">2</div><div class="step-lbl">Kirish</div></div>
+        <div class="step curr"><div class="step-dot">3</div><div class="step-lbl">Ariza</div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-lbl">Ko'rib chiqish</div></div>
+        <div class="step"><div class="step-dot">5</div><div class="step-lbl">Natija</div></div>
+      </div>
+      <div style="text-align:center;margin-top:20px;">
+        <button class="btn btn-blue" onclick="showPage('p-register')">Hoziroq Boshlash →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- SAHIFA 2: RO'YXATDAN O'TISH              -->
+<!-- ======================================== -->
+<div id="p-register" class="page">
+  <div class="auth-wrap">
+    <div class="auth-box">
+      <div class="auth-top">
+        <div class="auth-icon" style="background:var(--navy)">📝</div>
+        <h2>Ro'yxatdan O'tish</h2>
+        <p>Qabul tizimiga kirish uchun hisob yarating</p>
+      </div>
+      <div class="card">
+        <div id="reg-msg"></div>
+        <div class="form-group">
+          <label class="form-label">To'liq ism <span>*</span></label>
+          <input id="reg-name" type="text" class="form-ctrl" placeholder="Alisher Karimov">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email <span>*</span></label>
+          <input id="reg-email" type="email" class="form-ctrl" placeholder="email@gmail.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Parol <span>*</span></label>
+          <input id="reg-pass" type="password" class="form-ctrl" placeholder="Kamida 6 belgi">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Parolni tasdiqlang <span>*</span></label>
+          <input id="reg-pass2" type="password" class="form-ctrl" placeholder="Parolni qayta kiriting">
+        </div>
+        <button class="btn btn-primary btn-full" onclick="doRegister()">Ro'yxatdan O'tish →</button>
+        <div class="auth-foot">Hisobingiz bormi? <a onclick="showPage('p-login')">Tizimga kiring</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- SAHIFA 3: KIRISH                         -->
+<!-- ======================================== -->
+<div id="p-login" class="page">
+  <div class="auth-wrap">
+    <div class="auth-box">
+      <div class="auth-top">
+        <div class="auth-icon" style="background:var(--blue)">🔑</div>
+        <h2>Tizimga Kirish</h2>
+        <p>Email va parolingizni kiriting</p>
+      </div>
+      <div class="card">
+        <div id="login-msg"></div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input id="login-email" type="email" class="form-ctrl" placeholder="email@gmail.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Parol</label>
+          <input id="login-pass" type="password" class="form-ctrl" placeholder="Parolingiz">
+        </div>
+        <button class="btn btn-primary btn-full" onclick="doLogin()">🔑 Kirish</button>
+        <div class="auth-foot">Hisobingiz yo'qmi? <a onclick="showPage('p-register')">Ro'yxatdan o'ting</a></div>
+        <div style="border-top:1px solid var(--border);margin-top:16px;padding-top:14px;text-align:center;">
+          <span style="font-size:.83rem;color:var(--muted)">Admin panel: </span>
+          <a style="font-size:.83rem;color:var(--sky);font-weight:700;cursor:pointer" onclick="showPage('p-admin-login')">Admin kirish</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- SAHIFA 4: SHAXSIY KABINET                -->
+<!-- ======================================== -->
+<div id="p-dashboard" class="page">
+  <div class="container">
+    <div style="margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <h1 style="font-family:'Merriweather',serif;color:var(--navy);font-size:1.6rem;">Xush kelibsiz, <span id="dash-name"></span>! 👋</h1>
+        <p style="color:var(--muted);">Shaxsiy kabinetingiz</p>
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="showPage('p-apply')">+ Yangi Ariza</button>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats" id="user-stats"></div>
+
+    <!-- Arizalar -->
+    <div class="card">
+      <div class="card-head"><div><h2>Mening Arizalarim</h2><p>Barcha ariza holatlari</p></div></div>
+      <div id="user-apps"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- SAHIFA 5: ARIZA TOPSHIRISH               -->
+<!-- ======================================== -->
+<div id="p-apply" class="page">
+  <div class="container">
+    <div style="max-width:660px;margin:0 auto;">
+      <div style="margin-bottom:20px;">
+        <a style="color:var(--muted);font-size:.88rem;cursor:pointer" onclick="showPage('p-dashboard')">← Kabinetga qaytish</a>
+        <h1 style="font-family:'Merriweather',serif;color:var(--navy);font-size:1.6rem;margin-top:8px;">Ariza Topshirish</h1>
+        <p style="color:var(--muted);">Barcha ma'lumotlarni to'g'ri kiriting</p>
+      </div>
+      <div class="card">
+        <div id="apply-msg"></div>
+
+        <div style="font-weight:700;color:var(--navy);margin-bottom:14px;font-size:.95rem;">👤 Shaxsiy Ma'lumotlar</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Ism <span>*</span></label>
+            <input id="a-fname" type="text" class="form-ctrl" placeholder="Alisher">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Familiya <span>*</span></label>
+            <input id="a-lname" type="text" class="form-ctrl" placeholder="Karimov">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Tug'ilgan sana <span>*</span></label>
+            <input id="a-bdate" type="date" class="form-ctrl">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefon <span>*</span></label>
+            <input id="a-phone" type="tel" class="form-ctrl" placeholder="+998901234567">
+          </div>
+        </div>
+
+        <div style="font-weight:700;color:var(--navy);margin:8px 0 14px;font-size:.95rem;">🪪 Pasport Ma'lumotlari</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Pasport seriyasi <span>*</span></label>
+            <input id="a-pseries" type="text" class="form-ctrl" placeholder="AA" maxlength="2"
+                   style="text-transform:uppercase;letter-spacing:5px;font-size:1.1rem">
+            <div class="form-hint">2 ta lotin harf (masalan: AA)</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pasport raqami <span>*</span></label>
+            <input id="a-pnum" type="text" class="form-ctrl" placeholder="1234567" maxlength="7">
+            <div class="form-hint">7 ta raqam</div>
+          </div>
+        </div>
+
+        <div style="font-weight:700;color:var(--navy);margin:8px 0 14px;font-size:.95rem;">🎯 Yo'nalish Tanlash</div>
+        <div class="form-group">
+          <label class="form-label">Yo'nalish <span>*</span></label>
+          <select id="a-dir" class="form-ctrl">
+            <option value="">— Yo'nalishni tanlang —</option>
+            <optgroup label="📚 Axborot Texnologiyalari">
+              <option value="Kompyuter ilmlari|AT">Kompyuter ilmlari (4 yil)</option>
+              <option value="Dasturiy injiniring|AT">Dasturiy injiniring (4 yil)</option>
+              <option value="Kiberxavfsizlik|AT">Kiberxavfsizlik (4 yil)</option>
+            </optgroup>
+            <optgroup label="💼 Iqtisodiyot va Menejment">
+              <option value="Iqtisodiyot|IqM">Iqtisodiyot (4 yil)</option>
+              <option value="Menejment|IqM">Menejment (4 yil)</option>
+              <option value="Moliya|IqM">Moliya (4 yil)</option>
+            </optgroup>
+            <optgroup label="⚖️ Huquq">
+              <option value="Huquqshunoslik|Huquq">Huquqshunoslik (4 yil)</option>
+              <option value="Xalqaro munosabatlar|Huquq">Xalqaro munosabatlar (4 yil)</option>
+            </optgroup>
+            <optgroup label="🔬 Tibbiyot">
+              <option value="Tibbiyot|Tib">Tibbiyot (6 yil)</option>
+              <option value="Farmatsiya|Tib">Farmatsiya (5 yil)</option>
+            </optgroup>
+            <optgroup label="🏗️ Texnika">
+              <option value="Muhandislik|Tex">Muhandislik (4 yil)</option>
+              <option value="Arxitektura|Tex">Arxitektura (5 yil)</option>
+            </optgroup>
+            <optgroup label="🎓 Pedagogika">
+              <option value="Pedagogika|Ped">Pedagogika (4 yil)</option>
+              <option value="Psixologiya|Ped">Psixologiya (4 yil)</option>
+              <option value="Jurnalistika|Ped">Jurnalistika (4 yil)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="alert alert-wrn">⚠️ <div><strong>Diqqat:</strong> Ariza topshirilgandan so'ng ma'lumotlarni o'zgartirish mumkin emas. Iltimos, ma'lumotlar to'g'riligini tekshiring.</div></div>
+        <button class="btn btn-primary btn-full" onclick="doApply()">📤 Ariza Topshirish</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- SAHIFA 6: ADMIN LOGIN                    -->
+<!-- ======================================== -->
+<div id="p-admin-login" class="page">
+  <div class="auth-wrap">
+    <div class="auth-box">
+      <div class="auth-top">
+        <div class="auth-icon" style="background:var(--gold)">⚙️</div>
+        <div style="display:inline-block;background:var(--gold);color:var(--navy);padding:2px 10px;border-radius:4px;font-size:.75rem;font-weight:800;letter-spacing:.06em;margin-bottom:6px;">ADMIN PANEL</div>
+        <h2>Boshqaruv Paneli</h2>
+        <p>Admin hisob ma'lumotlarini kiriting</p>
+      </div>
+      <div class="card">
+        <div id="adm-login-msg"></div>
+        <div class="form-group">
+          <label class="form-label">Login</label>
+          <input id="adm-user" type="text" class="form-ctrl" placeholder="admin">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Parol</label>
+          <input id="adm-pass" type="password" class="form-ctrl" placeholder="••••••">
+        </div>
+        <button class="btn btn-primary btn-full" onclick="doAdminLogin()">⚙️ Admin Kirish</button>
+        <div class="alert alert-inf" style="margin-top:14px;font-size:.83rem;">
+          💡 Test: <strong>admin</strong> / <strong>admin123</strong>
+        </div>
+        <div class="auth-foot"><a onclick="showPage('p-login')">← Abituriyent tizimiga</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- SAHIFA 7: ADMIN PANEL                    -->
+<!-- ======================================== -->
+<div id="p-admin" class="page">
+  <div class="container">
+    <div style="margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div style="display:inline-block;background:var(--gold);color:var(--navy);padding:2px 10px;border-radius:4px;font-size:.75rem;font-weight:800;letter-spacing:.06em;margin-bottom:6px;">ADMIN</div>
+        <h1 style="font-family:'Merriweather',serif;color:var(--navy);font-size:1.6rem;">Boshqaruv Paneli</h1>
+        <p style="color:var(--muted);">Barcha arizalarni ko'ring va boshqaring</p>
+      </div>
+    </div>
+
+    <!-- Admin Stats -->
+    <div class="stats" id="adm-stats"></div>
+
+    <!-- Arizalar jadvali -->
+    <div class="card">
+      <div class="card-head"><div><h2>Arizalar Ro'yxati</h2></div></div>
+
+      <!-- Tabs -->
+      <div class="tabs" id="adm-tabs">
+        <div class="tab on" data-f="all"     onclick="admFilter(this)">Hammasi</div>
+        <div class="tab"    data-f="pending" onclick="admFilter(this)">⏳ Kutilmoqda</div>
+        <div class="tab"    data-f="accepted"onclick="admFilter(this)">✅ Qabul</div>
+        <div class="tab"    data-f="rejected"onclick="admFilter(this)">❌ Rad</div>
+      </div>
+
+      <!-- Qidirish -->
+      <div class="search-bar">
+        <input id="adm-search" type="text" class="form-ctrl" placeholder="🔍 Ism, telefon, pasport bo'yicha qidirish...">
+        <button class="btn btn-blue btn-sm" onclick="renderAdminTable()">Qidirish</button>
+      </div>
+
+      <div id="adm-table"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== MODAL: ARIZA TAFSILOTI ======== -->
+<div id="modal-detail" class="modal-bg" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">×</button>
+    <div class="modal-title">📋 Ariza Tafsiloti</div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ======== MODAL: RAD ETISH ======== -->
+<div id="modal-reject" class="modal-bg" onclick="if(event.target===this)closeReject()">
+  <div class="modal" style="max-width:400px">
+    <button class="modal-x" onclick="closeReject()">×</button>
+    <div class="modal-title">❌ Arizani Rad Etish</div>
+    <input type="hidden" id="rej-id">
+    <div class="form-group">
+      <label class="form-label">Rad etish sababi (ixtiyoriy)</label>
+      <textarea id="rej-note" class="form-ctrl" rows="4" placeholder="Sababni kiriting..."></textarea>
+    </div>
+    <div style="display:flex;gap:10px;">
+      <button class="btn btn-red btn-full" onclick="confirmReject()">❌ Rad Etish</button>
+      <button class="btn btn-gray btn-full" onclick="closeReject()">Bekor</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 <strong>UzDU — Qabul Tizimi</strong> | Veb Tizimlari fanidan talabalar loyihasi &nbsp;|&nbsp; Toshkent — 2026</p>
+</footer>
+
+<!-- ======== KURS ISHI TUGMASI ======== -->
+<button class="ki-toggle-btn" onclick="toggleKursIshi()" title="Kurs ishi haqida">
+  <span class="ki-label">Kurs ishi</span>
+  📄
+</button>
+
+<!-- ======== KURS ISHI PANELI ======== -->
+<div id="ki-overlay" class="ki-overlay" onclick="if(event.target===this)toggleKursIshi()">
+  <div class="ki-panel">
+
+    <div class="ki-handle"><span></span></div>
+
+    <div class="ki-header">
+      <button class="ki-close-btn" onclick="toggleKursIshi()">×</button>
+      <div class="ki-header-badge">Kurs Ishi</div>
+      <h2>Universitetga Qabul Jarayonini<br>Avtomatlashtiruvchi Veb Tizim</h2>
+      <p>Veb Tizimlari — 2025/2026 o'quv yili</p>
+    </div>
+
+    <div class="ki-body">
+
+      <div class="ki-about">
+        <strong>Loyiha maqsadi:</strong> Ushbu kurs ishi universitetga qabul jarayonini to'liq raqamlashtirishga qaratilgan.
+        Platforma orqali abituriyentlar ro'yxatdan o'tishi, tizimga kirishi va ariza topshirishi mumkin.
+        Arizada shaxsiy ma'lumotlar, pasport ma'lumotlari va tanlangan yo'nalish ko'rsatiladi.
+        <br><br>
+        <strong>Admin panel</strong> orqali barcha arizalar ko'rib chiqiladi, qabul yoki rad etiladi.
+        Tizim <strong>HTML, CSS va JavaScript</strong> texnologiyalari yordamida yaratilgan bo'lib,
+        ma'lumotlar <strong>localStorage</strong>'da saqlanadi.
+      </div>
+
+      <div class="ki-info-grid">
+        <div class="ki-info-item">
+          <label>📚 Fan nomi</label>
+          <input type="text" value="Veb Tizimlari" readonly>
+        </div>
+        <div class="ki-info-item">
+          <label>👥 Guruh</label>
+          <input id="ki-guruh" type="text" value="81-24" readonly>
+        </div>
+        <div class="ki-info-item">
+          <label>✏️ Bajardi</label>
+          <input id="ki-bajardi" type="text" value="S. Raxmatullo , A. Bahodir" readonly>
+        </div>
+        <div class="ki-info-item">
+          <label>✅ Tekshirdi</label>
+          <input id="ki-tekshirdi" type="text" value="Xamrakulov O'tkir" readonly>
+        </div>
+      </div>
+
+      <div class="ki-tech">
+        <div class="ki-tech-title">🛠 Ishlatilgan texnologiyalar</div>
+        <div class="ki-tech-tags">
+          <span class="ki-tech-tag t-html">HTML5</span>
+          <span class="ki-tech-tag t-css">CSS3</span>
+          <span class="ki-tech-tag t-js">JavaScript</span>
+          <span class="ki-tech-tag">localStorage</span>
+          <span class="ki-tech-tag">Responsive Design</span>
+          <span class="ki-tech-tag">Google Fonts</span>
+        </div>
+      </div>
+
+      <div class="ki-tech">
+        <div class="ki-tech-title">⚙️ Asosiy funksiyalar</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:.83rem;color:var(--text);">
+          <div>✅ Ro'yxatdan o'tish</div>
+          <div>✅ Tizimga kirish/chiqish</div>
+          <div>✅ Ariza topshirish</div>
+          <div>✅ Holat kuzatuvi</div>
+          <div>✅ Admin panel</div>
+          <div>✅ Qabul / Rad etish</div>
+          <div>✅ Qidirish va filtrlash</div>
+          <div>✅ Statistika kartalar</div>
+        </div>
+      </div>
+
+      <hr class="ki-divider">
+
+      <div class="ki-footer-info">
+        <div>
+          <span>📍 Toshkent davlat Texnika universiteti</span>
+          <small>"Elektronika va avtomatika muhandisligi" fakulteti</small>
+          <small>“Axborot tizimlari va texnologiyalari” Mutaxassisligi</small>
+          <small>Veb Tizimlari fanidan Kurs ishi</small>
+        </div>
+        <div class="ki-year-badge">Toshkent — 2026</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ======================================== -->
+<!-- JAVASCRIPT                               -->
+<!-- ======================================== -->
+<script src="universitet-qabul.js"></script>
+<!-- JS docked externally. -->
+
+</body>
+</html>
+
